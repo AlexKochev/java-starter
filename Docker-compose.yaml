@@ -1,0 +1,10 @@
+version: "3"
+services:
+  java-starter:
+    container_name: java-starter
+    build:
+      context: docker-java-starter
+      dockerfile: Dockerfile
+    image: java-starter:latest
+    ports:
+      - 8080:8080
