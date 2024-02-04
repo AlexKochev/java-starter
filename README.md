@@ -25,7 +25,14 @@ docker exec -ti java-starter /bin/sh
 ```
 
 ## Packaging a Java Application with Maven
+```
 ./mvnw package
+```
+
+## Running a Java App with Maven Wrapper
+```
+./mvnw spring-boot:run
+```
 
 ## Building multi-platform images:
 
