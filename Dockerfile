@@ -1,5 +1,16 @@
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:21-jre-alpine
+
+WORKDIR /app
+
+RUN addgroup -S alex && adduser -S alex -G alex
+
+USER alex
+
 VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+COPY target/*.jar app.jar
+
+ENTRYPOINT ["java","-jar","/app/app.jar"]
+
+#COPY run.sh .
+#ENTRYPOINT ["run.sh"]
