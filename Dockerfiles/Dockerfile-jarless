@@ -1,5 +1,8 @@
 FROM eclipse-temurin:21-jdk-alpine
- 
+
+RUN addgroup basicgroup; adduser  --ingroup basicgroup --disabled-password alex
+USER alex
+
 WORKDIR /app
  
 COPY .mvn/ .mvn
@@ -8,4 +11,4 @@ RUN ./mvnw dependency:go-offline
  
 COPY src ./src
  
-ENTRYPOINT ["./mvnw","spring-boot:run"]
+ENTRYPOINT ["./mvnw", "spring-boot:run"]

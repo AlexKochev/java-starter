@@ -24,7 +24,7 @@ docker exec -ti java-starter /bin/sh
 ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=java-starter
 ```
 
-## Packaging a Java Application with Maven
+## Packaging a Java Application with Maven Wrapper
 ```
 ./mvnw package
 ```
@@ -46,4 +46,15 @@ docker run --rm mplatform/mquery eclipse-temurin:21-jdk-alpine
 
 ```	
 docker buildx build --platform linux/amd64, linux/arm64 -t java-starter .
+```
+
+## More options for executing bash files
+```
+exec java ${JAVA_OPTS} -jar /app.jar ${@}
+```
+```
+docker run -p 8080:8080 -e "JAVA_OPTS=-Ddebug -Xmx128m" java-starter
+```
+```
+docker run -p 9000:9000 myorg/myapp --server.port=9000
 ```

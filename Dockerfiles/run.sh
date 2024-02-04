@@ -1,5 +1,5 @@
 #!/bin/sh
-exec java -jar app.jar
+exec java -jar /app/app.jar
 
 # exec java ${JAVA_OPTS} -jar /app.jar ${@}
 # docker run -p 8080:8080 -e "JAVA_OPTS=-Ddebug -Xmx128m" java-starter
